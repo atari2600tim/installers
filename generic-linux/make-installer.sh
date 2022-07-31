@@ -116,6 +116,10 @@ if [ -z "$(ls build/lib/libssl.so*)" ]; then
   exit 1
 fi
 
+# include ATK for accessibility
+cp -L /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so* \
+      build/lib/
+
 echo "Generating AppImage"
 ./squashfs-root/AppRun ./build/mudlet -appimage \
   -executable=build/lib/rex_pcre.so -executable=build/lib/zip.so \
