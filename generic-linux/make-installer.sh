@@ -116,8 +116,10 @@ if [ -z "$(ls build/lib/libssl.so*)" ]; then
   exit 1
 fi
 
-# include ATK for accessibility
+# include ATK and AT-SPI for accessibility
 cp -L /usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so* \
+      build/lib/
+cp -L /usr/lib/x86_64-linux-gnu/libatspi.so* \
       build/lib/
 
 echo "Generating AppImage"
